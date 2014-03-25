@@ -1,0 +1,26 @@
+html {
+    font-family: arial;
+    font-size: 14px;
+    background-color: #555;
+    color: #fff;
+    background-position: top center;
+    background-repeat: no-repeat;
+
+    >header {
+        min-height: 300px;
+        padding: 50px;
+        background: #000 url(../img/logo.png) no-repeat center center;
+    }
+
+    >body {
+        margin: 0 auto;
+        min-height: 300px;
+        padding: 25px;
+    }
+
+    >footer {
+        padding: 25px;
+        font-size: 80%;
+        text-align: center;
+    }
+}
