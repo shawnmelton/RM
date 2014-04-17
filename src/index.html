@@ -5,12 +5,30 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <link rel="stylesheet" type="text/css" href="/css/styles.css">
-        <!--[if lt IE 9]><script src="/js/html5.js"></script>
-        <script src="/js/mediaqueries.js"></script><![endif]-->
+        <!--[if lt IE 9]><script src="/js/html5.js"></script><![endif]-->
+        <script type="text/javascript">
+            var lazyLoad = function() {
+                /*var scriptTag = document.createElement('script'); 
+                scriptTag.src = "/js/app.js";
+                scriptTag.type = 'text/javascript';
+                scriptTag.async = true;
+                document.getElementsByTagName('head')[0].appendChild(scriptTag);*/
+            }
+        </script>
     </head>
-    <body>
-        <header></header>
+    <body onload="lazyLoad();">
+        <header>
+            <a href="/"><span>Renaissance Movement</span></a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/news">News</a>
+                <a href="/media">Media</a>
+                <a href="/artists">Artists</a>
+                <a href="/events">Events</a>
+                <a href="/about">About RMM</a>
+                <a id="book" href="/book">Book Now</a>
+            </nav>
+        </header>
         <div></div>
-        <footer>Copyright &copy; 2014 All rights reserved Renaissance Movement.</footer>
     </body>
 </html>

@@ -72,7 +72,23 @@ module.exports = (function(grunt) {
                 }
             }
         },
-        clean: ['tmp', 'dist/img', 'dist/js', 'dist/css', 'dist/index.html']
+        clean: ['tmp', 'dist/img', 'dist/js', 'dist/css', 'dist/index.html'],
+        watch: {
+            css: {
+                files: ['src/css/*.scss'],
+                tasks: ['sass'],
+                options: {
+                    livereload: true
+                }
+            },
+            html: {
+                files: ['src/index.html'],
+                tasks: ['htmlmin'],
+                options: {
+                    livereload: true
+                }
+            }
+        }
     });
 
     grunt.event.on('watch', function(action, filepath) {
@@ -83,13 +99,14 @@ module.exports = (function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     /*grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-jst');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-uglify');*/
 
     grunt.registerTask('default', [
-        /*'jst', 'jshint', 'requirejs', 'uglify',*/ 'sass', 'htmlmin', 'imagemin'
+        /*'jst', 'jshint', 'requirejs', 'uglify',*/ 'sass', 'htmlmin', 'imagemin', 'watch'
     ]);
 
     grunt.registerTask('cleanup', ['clean']);

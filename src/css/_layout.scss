@@ -1,26 +1,69 @@
+@mixin link() {
+    display: block;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+
+    >span { display: none; }
+}
+
+@mixin clearfix() {
+    &:after {
+        content: " ";
+        display: table;
+        clear: both;
+    }
+}
+
 html {
     font-family: arial;
     font-size: 14px;
-    background-color: #555;
     color: #fff;
     background-position: top center;
     background-repeat: no-repeat;
+    background: #000 url(../img/bg.jpg) no-repeat top right;
+}
 
-    >header {
-        min-height: 300px;
-        padding: 50px;
-        background: #000 url(../img/logo.png) no-repeat center center;
+header {
+    position: relative;
+
+    a {
+        @include link();
+
+        color: #fff;
     }
 
-    >body {
-        margin: 0 auto;
-        min-height: 300px;
-        padding: 25px;
+    >a {
+        height: 71px;
+        width: 334px;
+        background: url(../img/logo.png) no-repeat 0 0;
     }
 
-    >footer {
-        padding: 25px;
-        font-size: 80%;
-        text-align: center;
+    >nav {
+        @include clearfix();
+
+        position: absolute;
+        right: 20px;
+        top: 21px;
+
+        >a {
+            border: 3px solid transparent;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            padding: 0 10px;
+            float: left;
+            font-size: 120%;
+
+            &#book {
+                border-color: #fff;
+                padding: 0 22px;
+                margin-left: 10px;
+            }
+        }
     }
+}
+
+body {
+    
 }
