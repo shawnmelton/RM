@@ -1,0 +1,53 @@
+#spotlight {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 528px;
+    height: 528px;
+    margin-left: -264px;
+    margin-top: -264px;
+
+    >div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 528px;
+        width: 528px;
+        background: #000;
+        opacity: 0.3;
+        border-radius: 264px;
+    }
+
+    >h1 {
+        position: relative;
+        height: 224px;
+        width: 423px;
+        margin: 65px auto 40px;
+        background: url(../img/experience-renaissance-movement-heading.png) no-repeat 0 0;
+    }
+
+    >p#call-to-actions {
+        @include clearfix();
+
+        position: relative;
+        width: 425px;
+        margin: 0 auto;
+
+        >a {
+            @include link();
+
+            border: 3px solid #fff;
+            height: 44px;
+            width: 174px;
+            line-height: 44px;
+            text-align: center;
+            font-size: 120%;
+            color: #fff;
+            float: left;
+
+            &:first-child {
+                margin-right: 65px;
+            }
+        }
+    }
+}

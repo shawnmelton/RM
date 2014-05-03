@@ -2,7 +2,7 @@ module.exports = (function(grunt) {
     'use strict';
 
     grunt.initConfig({
-        /*jst: {
+        jst: {
             compile: {
                 files: {
                     'src/js/templates/jst.js': 'src/js/templates/*.html'
@@ -10,34 +10,22 @@ module.exports = (function(grunt) {
             }
         },
         jshint: {
-            all: ['Gruntfile.js', 'src/js/*.js', 'src/js/views/*.js']
+            all: ['Gruntfile.js', 'src/js/views/*.js', 'src/js/controllers/*.js']
         },
         requirejs: {
             compile: {
                 options: {
-                    optimize: 'uglify',
+                    optimize: 'none',
                     preserveLicenseComments: false,
                     findNestedDependencies: true,
                     baseUrl: 'src/js/',
                     mainConfigFile: 'src/js/bootstrap.js',
-                    name: 'app',
+                    name: 'desktop',
                     include: ['bootstrap'],
-                    out: 'tmp/js/app.js'
+                    out: 'dist/js/desktop.js'
                 }
             }
         },
-        uglify: {
-            options: {
-                mangle: true,
-                compress: true,
-                report: 'min'
-            },
-            my_target: {
-                files: {
-                    'dist/js/app.js': ['src/js/libs/require.js', 'tmp/js/app.js']
-                }
-            }
-        },*/
         sass: {
             dist: {
                 files: {
@@ -48,7 +36,7 @@ module.exports = (function(grunt) {
                 }
             }
         },
-        imagemin: {
+        /*imagemin: {
             options: {
                 optimizationLevel: 3
             },
@@ -56,11 +44,11 @@ module.exports = (function(grunt) {
                 files: [{
                     expand: true,
                     cwd: 'src/img/',
-                    src: ['*.png', '*.jpg', '*.gif', '*/*.jpg'],
+                    src: ['*.png', '*.jpg', '*.gif'],
                     dest: 'dist/img/'
                 }]
             }
-        },
+        },*/
         htmlmin: {
             dist: {
                 options: {
@@ -81,6 +69,13 @@ module.exports = (function(grunt) {
                     livereload: true
                 }
             },
+            js: {
+                files: ['src/js/**/*.js'],
+                tasks: ['jshint', 'requirejs'],
+                options: {
+                    livereload: true
+                }
+            },
             html: {
                 files: ['src/index.html'],
                 tasks: ['htmlmin'],
@@ -97,16 +92,16 @@ module.exports = (function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    //grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    /*grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-jst');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
-    grunt.loadNpmTasks('grunt-contrib-uglify');*/
+    //grunt.loadNpmTasks('grunt-contrib-uglify');
 
     grunt.registerTask('default', [
-        /*'jst', 'jshint', 'requirejs', 'uglify',*/ 'sass', 'htmlmin', 'imagemin', 'watch'
+        'jst', 'jshint', 'requirejs', /*'uglify',*/ 'sass', 'htmlmin', /*'imagemin',*/ 'watch'
     ]);
 
     grunt.registerTask('cleanup', ['clean']);
