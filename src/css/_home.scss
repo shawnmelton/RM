@@ -1,113 +1,202 @@
-#spotlight {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 528px;
-    height: 528px;
-    margin-left: -264px;
-    margin-top: -264px;
-
-    >div {
+#above-the-fold {
+    color: #fff;
+    background: #000 url(../img/bg.jpg) no-repeat top right;
+    height: 768px;
+}
+    #spotlight {
         position: absolute;
-        top: 0;
-        left: 0;
-        height: 528px;
+        top: 50%;
+        left: 50%;
         width: 528px;
-        background: #000;
-        opacity: 0.3;
-        border-radius: 264px;
-    }
+        height: 528px;
+        margin-left: -264px;
+        margin-top: -264px;
 
-    >h1 {
-        position: relative;
-        height: 224px;
-        width: 423px;
-        margin: 65px auto 35px;
-        background: url(../img/experience-renaissance-movement-heading.png) no-repeat 0 0;
-    }
+        >div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 528px;
+            width: 528px;
+            background: #000;
+            opacity: 0.3;
+            border-radius: 264px;
+        }
 
-    >p#calls-to-action {
-        @include clearfix();
+        >h1 {
+            position: relative;
+            height: 224px;
+            width: 423px;
+            margin: 65px auto 35px;
+            background: url(../img/experience-renaissance-movement-heading.png) no-repeat 0 0;
+        }
 
-        width: 425px;
-        margin: 0 auto;
+        >p#calls-to-action {
+            @include clearfix();
 
-        >a {
+            width: 425px;
+            margin: 0 auto;
+
+            >a {
+                @include link();
+
+                position: relative;
+                border: 3px solid #fff;
+                height: 44px;
+                width: 174px;
+                line-height: 44px;
+                text-align: center;
+                font-size: 120%;
+                color: #fff;
+                float: left;
+
+                &:first-child {
+                    margin-right: 65px;
+                }
+
+                >span {
+                    position: absolute;
+                    display: block;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: #fff;
+                    opacity: 0.4;
+                    visibility: hidden;
+                }
+
+                >strong {
+                    position: relative;
+                    font-weight: normal;
+                }
+
+                &:hover {
+                    >span { visibility: visible; }
+                    >strong { color: #520000; }
+                }
+
+                &:active {
+                    >span { opacity: 0.75; }
+                }
+            }
+        }
+
+        >a#home-play {
             @include link();
 
             position: relative;
-            border: 3px solid #fff;
-            height: 44px;
-            width: 174px;
-            line-height: 44px;
+            width: 79px;
+            height: 79px;
+            margin: 25px auto 10px;
+            background: url(../img/play-button.png) no-repeat 0 0;
+
+            &:hover {
+                background-position: 0 -79px;
+            }
+        }
+
+        >p#open-rmtv {
+            position: relative;
             text-align: center;
-            font-size: 120%;
-            color: #fff;
+
+            >a {
+                font-size: 130%;
+                color: #fff;
+                cursor: pointer;
+                outline: none;
+                text-decoration: none;
+
+                >span {
+                    color: #de0000;
+                }
+
+                &:hover {
+                    color: #de0000;
+                }
+            }
+        }
+    }
+
+    a#home-news {
+        @include link();
+
+        position: absolute;
+        bottom: 15px;
+        left: 0;
+        height: 60px;
+        line-height: 60px;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+        padding-left: 38px;
+        padding-right: 56px;
+        background: url(../img/heading-arrow-down.png) no-repeat 95% 50%;
+
+        >span {
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #000;
+            opacity: 0.4;
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        >strong {
+            position: relative;
+            font-size: 250%;
+            text-transform: uppercase;
+            font-weight: normal;
+        }
+    }
+
+#below-the-fold {
+    >section {
+        margin: 4px 0;
+    }
+
+    .tiled-group {
+        @include clearfix();
+
+        >article {
+            position: relative;
             float: left;
+            width: 33.333%;
+            padding-left: 4px;
+            box-sizing: border-box;
 
             &:first-child {
-                margin-right: 65px;
+                padding-left: 0;
             }
 
-            >span {
-                position: absolute;
+            >img {
                 display: block;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: #fff;
-                opacity: 0.4;
-                visibility: hidden;
+                width: 100%;
+                max-height: 282px;
             }
 
-            >strong {
-                position: relative;
+            >h3 {
+                position: absolute;
+                left: 15px;
+                top: 235px;
+                color: #fff;
+                font-size: 200%;
                 font-weight: normal;
             }
 
-            &:hover {
-                >span { visibility: visible; }
-                >strong { color: #520000; }
-            }
+            >p {
+                color: #8f8e8e;
+                line-height: 20px;
+                padding: 12px;
 
-            &:active {
-                >span { opacity: 0.75; }
-            }
-        }
-    }
+                >a {
+                    color: #de0000;
 
-    >a#home-play {
-        @include link();
-
-        position: relative;
-        width: 79px;
-        height: 79px;
-        margin: 25px auto 10px;
-        background: url(../img/play-button.png) no-repeat 0 0;
-
-        &:hover {
-            background-position: 0 -79px;
-        }
-    }
-
-    >p#open-rmtv {
-        position: relative;
-        text-align: center;
-
-        >a {
-            font-size: 130%;
-            color: #fff;
-            cursor: pointer;
-            outline: none;
-            text-decoration: none;
-
-            >span {
-                color: #de0000;
-            }
-
-            &:hover {
-                color: #de0000;
+                    &:hover { text-decoration: underline; }
+                }
             }
         }
     }

@@ -18,14 +18,14 @@
 html {
     font-family: arial;
     font-size: 14px;
-    color: #fff;
-    background-position: top center;
-    background-repeat: no-repeat;
-    background: #000 url(../img/bg.jpg) no-repeat top right;
+    background: #fff;
 }
 
 header {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
 
     a {
         @include link();
