@@ -22,20 +22,20 @@
         position: relative;
         height: 224px;
         width: 423px;
-        margin: 65px auto 40px;
+        margin: 65px auto 35px;
         background: url(../img/experience-renaissance-movement-heading.png) no-repeat 0 0;
     }
 
-    >p#call-to-actions {
+    >p#calls-to-action {
         @include clearfix();
 
-        position: relative;
         width: 425px;
         margin: 0 auto;
 
         >a {
             @include link();
 
+            position: relative;
             border: 3px solid #fff;
             height: 44px;
             width: 174px;
@@ -47,6 +47,67 @@
 
             &:first-child {
                 margin-right: 65px;
+            }
+
+            >span {
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: #fff;
+                opacity: 0.4;
+                visibility: hidden;
+            }
+
+            >strong {
+                position: relative;
+                font-weight: normal;
+            }
+
+            &:hover {
+                >span { visibility: visible; }
+                >strong { color: #520000; }
+            }
+
+            &:active {
+                >span { opacity: 0.75; }
+            }
+        }
+    }
+
+    >a#home-play {
+        @include link();
+
+        position: relative;
+        width: 79px;
+        height: 79px;
+        margin: 25px auto 10px;
+        background: url(../img/play-button.png) no-repeat 0 0;
+
+        &:hover {
+            background-position: 0 -79px;
+        }
+    }
+
+    >p#open-rmtv {
+        position: relative;
+        text-align: center;
+
+        >a {
+            font-size: 130%;
+            color: #fff;
+            cursor: pointer;
+            outline: none;
+            text-decoration: none;
+
+            >span {
+                color: #de0000;
+            }
+
+            &:hover {
+                color: #de0000;
             }
         }
     }
