@@ -197,11 +197,21 @@ if(k&&j[k]&&(e||j[k].data)||void 0!==d||"string"!=typeof b)return k||(k=i?a[h]=c
 //# sourceMappingURL=backbone-min.map;
 this["JST"] = this["JST"] || {};
 
+this["JST"]["src/js/templates/book.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div id="book-bg"></div>\n<section id="book-content">\n    <p><a id="book-close"><span>Close</span></a></p>\n    <div id="book-left">\n        <h2>Book Now</h2>\n        <p>In at augue a lectus pellentesque mattis a sit amet diam. Cras dapibus leo porta, eleifend justo ac, auctor nulla. Maecenas quis velit lobortis, consequat massa ac, suscipit urna</p>\n    </div>\n    <form id="book-form" method="post" action="" name="book-form">\n        <fieldset>\n            <input type="text" name="firstName" placeholder="First Name">\n            <input type="text" name="lastName" placeholder="Last Name">\n        </fieldset>\n        <fieldset>\n            <input type="email" name="email" placeholder="Email Address">\n            <input type="phone" name="phone" placeholder="Phone Number">\n        </fieldset>\n        <fieldset>\n            <textarea name="comments" placeholder="Comments"></textarea>\n        </fieldset>\n        <p><a>Submit</a></p>\n    </form>\n</section>';
+
+}
+return __p
+};
+
 this["JST"]["src/js/templates/home.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div id="above-the-fold">\n    <section id="spotlight">\n        <div></div>\n        <h1><span>Experience Renaissance Movement Music</span></h1>\n        <p id="calls-to-action">\n            <a id="home-events">\n                <span></span>\n                <strong>Upcoming Events</strong>\n            </a>\n            <a id="home-book">\n                <span></span>\n                <strong>Book Now</strong>\n            </a>\n        </p>\n        <a id="home-play"></a>\n        <p id="open-rmtv"><a>Open <span>RMTV</span></a></p>\n    </section>\n    <a id="home-news">\n        <span></span>\n        <strong>News</strong>\n    </a>\n</div>\n<div id="below-the-fold">\n    <section id="news-teaser">\n        <div class="tiled-group">\n            <article>\n                <img src="/img/tile-example.jpg" alt="article title">\n                <h3>TITLE</h3>\n                <p>\n                    Author | Date<br>\n                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat <a href="">Read More</a>\n                </p>\n            </article>\n            <article>\n                <img src="/img/tile-example.jpg" alt="article title">\n                <h3>TITLE</h3>\n                <p>\n                    Author | Date<br>\n                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat <a href="">Read More</a>\n                </p>\n            </article>\n            <article>\n                <img src="/img/tile-example.jpg" alt="article title">\n                <h3>TITLE</h3>\n                <p>\n                    Author | Date<br>\n                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat <a href="">Read More</a>\n                </p>\n            </article>\n        </div>\n    </section>\n</div>';
+__p += '<div id="above-the-fold">\n    <section id="spotlight">\n        <div></div>\n        <h1><span>Experience Renaissance Movement Music</span></h1>\n        <p id="calls-to-action">\n            <a id="home-events">\n                <span></span>\n                <strong>Upcoming Events</strong>\n            </a>\n            <a id="home-book">\n                <span></span>\n                <strong>Book Now</strong>\n            </a>\n        </p>\n        <a id="home-play"></a>\n        <p id="open-rmtv"><a>Open <span>RMTV</span></a></p>\n    </section>\n    <a id="home-news">\n        <span></span>\n        <strong>News</strong>\n    </a>\n</div>\n<div id="below-the-fold">\n    <section id="news-teaser">\n        <div class="tiled-group">\n            <article>\n                <img src="/img/tile-example.jpg" alt="article title">\n                <h3>TITLE</h3>\n                <p>\n                    Author | Date<br>\n                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &nbsp;<a href="">Read More ...</a>\n                </p>\n            </article>\n            <article>\n                <img src="/img/tile-example.jpg" alt="article title">\n                <h3>TITLE</h3>\n                <p>\n                    Author | Date<br>\n                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &nbsp;<a href="">Read More ...</a>\n                </p>\n            </article>\n            <article>\n                <img src="/img/tile-example.jpg" alt="article title">\n                <h3>TITLE</h3>\n                <p>\n                    Author | Date<br>\n                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &nbsp;<a href="">Read More ...</a>\n                </p>\n            </article>\n        </div>\n    </section>\n</div>';
 
 }
 return __p
@@ -211,19 +221,158 @@ define("templates/jst", function(){});
 define('views/home',['jquery', 'backbone', 'templates/jst'], function($, Backbone, tmplts) {
     var HomeView = Backbone.View.extend({
         el: '#content',
+        bookCallback: false,
+        events: {
+            'click #home-book': 'onBookClick'
+        },
+
+        onBookClick: function() {
+            if(this.bookCallback !== false) {
+                this.bookCallback();
+            }
+        },
 
         render: function() {
             this.$el.append(JST['src/js/templates/home.html']({}));
+        },
+
+        setBookCallback: function(_cb) {
+            this.bookCallback = _cb;
         }
     });
 
     return new HomeView();
 });
-define('controllers/home',['views/home'], function(HomeView) {
+define('views/elements/book',['jquery', 'backbone', 'templates/jst'], function($, Backbone, tmplts) {
+    var BookViewEl = Backbone.View.extend({
+        el: 'body',
+        bgEl: null,
+        contentEl: null,
+        submitCallback: null,
+
+        events: {
+            'click #book-bg': 'onCloseClick',
+            'click #book-close': 'onCloseClick',
+            'click #book-form > p > a': 'onFormSubmission',
+            'submit #book-form': 'onFormSubmission'
+        },
+
+        hide: function() {
+            var _bgEl = this.bgEl;
+            $(this.contentEl).fadeOut(1000, function() {
+                _bgEl.style.display = 'none';
+            });
+        },
+
+        onCloseClick: function() {
+            this.hide();
+        },
+
+        onFormSubmission: function() {
+            if(this.submitCallback !== null && this.validate()) {
+                this.submitCallback($('#book-form').serialize());
+            }
+        },
+
+        render: function(_submitCallback) {
+            this.submitCallback = _submitCallback;
+            this.$el.append(JST['src/js/templates/book.html']({}));
+            this.bgEl = document.getElementById('book-bg');
+            this.contentEl = document.getElementById('book-content');
+        },
+
+        show: function() {
+            this.bgEl.style.display = 'block';
+            $(this.contentEl).fadeIn(1000);
+        },
+
+        validate: function() {
+            var errors = [];
+            $('#book-form input').each(function() {
+                if($(this).val() === '') {
+                    errors.push($(this).attr('id'));
+                }
+            });
+
+            return (errors.length === 0);
+        }
+    });
+
+    return new BookViewEl();
+});
+define('tools/styleLoader',[], function() {
+    var StyleLoader = function() {};
+    StyleLoader.prototype = {
+        styles: [],
+
+        hasLoaded: function(file) {
+            return (this.styles.indexOf(file) !== -1);
+        },
+
+        load: function(file) {
+            if(this.hasLoaded(file)) {
+                return;
+            }
+
+            var link  = document.createElement('link');
+            link.rel  = 'stylesheet';
+            link.type = 'text/css';
+            link.href = '/css/'+ file +'.css';
+            document.getElementsByTagName('head')[0].appendChild(link);
+
+            this.styles.push(file);
+        }
+    };
+
+    return new StyleLoader();
+});
+define('controllers/elements/book',['views/elements/book', 'tools/styleLoader'], function(BookViewEl, StyleLoader) {
+    var BookController = function() {};
+    BookController.prototype = {
+        displayed: false,
+
+        display: function() {
+            if(this.displayed) {
+                this.show();
+                return;
+            }
+
+            StyleLoader.load('book');
+
+            var _this = this;
+            BookViewEl.render(function(data) {
+                _this.onFormSubmission(data);
+            });
+
+            setTimeout(function() {
+                BookViewEl.show();
+            }, 50);
+            this.displayed = true;
+        },
+
+        onFormSubmission: function(data) {
+            console.log(data);
+        },
+
+        show: function() {
+            BookViewEl.show();
+        }
+    };
+
+    return new BookController();
+});
+define('controllers/home',['views/home', 'controllers/elements/book'], function(HomeView, BookController) {
     var HomeController = function() {};
     HomeController.prototype = {
+        addBookCallback: function() {
+            HomeView.setBookCallback(function() {
+                BookController.display();
+            });
+        },
+
         display: function() {
             HomeView.render();
+            this.addBookCallback();
         },
 
         start: function() {

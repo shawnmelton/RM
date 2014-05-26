@@ -1,0 +1,130 @@
+@import 'mixins';
+
+#book-bg, #book-content {
+    position: absolute;
+    display: none;
+}
+
+#book-bg {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    opacity: 0.5;
+}
+
+#book-content {
+    top: 80px;
+    left: 15px;
+    right: 15px;
+    bottom: 100px;
+    overflow: auto;
+    background: #fff;
+    border-radius: 15px;
+    padding: 15px 15px 40px 25px;
+
+    >p {
+        @include clearfix();
+
+        >a {
+            @include link();
+            @include sprite();
+
+            float: right;
+            width: 34px;
+            height: 35px;
+            background-position: 0 0;
+
+            &:hover {
+                background-position: 0 -35px;
+            }
+        }
+    }
+}
+    
+    #book-left {
+        position: absolute;
+        left: 25px;
+        top: 40px;
+        bottom: 40px;
+        width: 280px;
+
+        >h2 {
+            font-size: 250%;
+            color: #5c5c5c;
+            margin-bottom: 35px;
+        }
+
+        >p {
+            font-size: 170%;
+            color: #8f8e8e;
+            line-height: 36px;
+        }
+    }
+
+    #book-form {
+        margin-top: 60px;
+        border-left: 305px solid #fff;
+
+        >fieldset {
+            @include clearfix();
+
+            margin-bottom: 30px;
+
+            >input {
+                float: left;
+                width: 48%;
+                height: 50px;
+
+                &:first-child {
+                    margin-right: 3%;
+                }
+            }
+
+            >input, >textarea {
+                display: block;
+                background: #f7f4f4;
+                border: 1px solid #ddd;
+                font-size: 150%;
+                padding: 5px 15px;
+                box-sizing: border-box;
+            }
+
+            >textarea {
+                width: 99%;
+                height: 200px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+            }
+        }
+
+        >p {
+            @include clearfix();
+
+            >a {
+                @include link();
+
+                float: left;
+                height: 44px;
+                line-height: 44px;
+                padding: 0 42px;
+                font-size: 140%;
+                border: 3px solid #de0000;
+                background: #fff;
+                color: #de0000;
+                text-shadow: 0 0 1px #333;
+
+                &:hover {
+                    border-color: #520000;
+                    color: #520000;
+                }
+
+                &:active {
+                    border-color: #333;
+                    background: #333;
+                    color: #fff;
+                }
+            }
+        }
+    }

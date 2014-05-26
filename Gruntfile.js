@@ -29,26 +29,14 @@ module.exports = (function(grunt) {
         sass: {
             dist: {
                 files: {
-                    'dist/css/styles.css': 'src/css/styles.scss'
+                    'dist/css/styles.css': 'src/css/styles.scss',
+                    'dist/css/book.css': 'src/css/book.scss'
                 },
                 options: {
                     style: 'compressed'
                 }
             }
         },
-        /*imagemin: {
-            options: {
-                optimizationLevel: 3
-            },
-            sitesImages: {
-                files: [{
-                    expand: true,
-                    cwd: 'src/img/',
-                    src: ['*.png', '*.jpg', '*.gif'],
-                    dest: 'dist/img/'
-                }]
-            }
-        },*/
         htmlmin: {
             dist: {
                 options: {
@@ -92,16 +80,14 @@ module.exports = (function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
-    //grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-jst');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
-    //grunt.loadNpmTasks('grunt-contrib-uglify');
 
     grunt.registerTask('default', [
-        'jst', 'jshint', 'requirejs', /*'uglify',*/ 'sass', 'htmlmin', /*'imagemin',*/ 'watch'
+        'jst', 'jshint', 'requirejs', 'sass', 'htmlmin', 'watch'
     ]);
 
     grunt.registerTask('cleanup', ['clean']);

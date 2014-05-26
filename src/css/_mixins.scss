@@ -1,0 +1,21 @@
+@mixin link() {
+    display: block;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+
+    >span { display: none; }
+}
+
+@mixin clearfix() {
+    &:after {
+        content: " ";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin sprite() {
+    background-image: url(../img/sprite.png);
+    background-repeat: no-repeat;
+}

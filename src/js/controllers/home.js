@@ -1,8 +1,15 @@
-define(['views/home'], function(HomeView) {
+define(['views/home', 'controllers/elements/book'], function(HomeView, BookController) {
     var HomeController = function() {};
     HomeController.prototype = {
+        addBookCallback: function() {
+            HomeView.setBookCallback(function() {
+                BookController.display();
+            });
+        },
+
         display: function() {
             HomeView.render();
+            this.addBookCallback();
         },
 
         start: function() {

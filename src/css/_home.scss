@@ -24,11 +24,13 @@
         }
 
         >h1 {
+            @include sprite();
+
             position: relative;
             height: 224px;
             width: 423px;
             margin: 65px auto 35px;
-            background: url(../img/experience-renaissance-movement-heading.png) no-repeat 0 0;
+            background-position: -113px 0;
         }
 
         >p#calls-to-action {
@@ -73,7 +75,10 @@
 
                 &:hover {
                     >span { visibility: visible; }
-                    >strong { color: #520000; }
+                    >strong {
+                        color: #520000;
+                        text-shadow: 0 0 1px #000;
+                    }
                 }
 
                 &:active {
@@ -84,15 +89,16 @@
 
         >a#home-play {
             @include link();
+            @include sprite();
 
             position: relative;
             width: 79px;
             height: 79px;
             margin: 25px auto 10px;
-            background: url(../img/play-button.png) no-repeat 0 0;
+            background-position: -34px 0;
 
             &:hover {
-                background-position: 0 -79px;
+                background-position: -34px -79px;
             }
         }
 

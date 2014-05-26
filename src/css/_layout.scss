@@ -1,20 +1,3 @@
-@mixin link() {
-    display: block;
-    cursor: pointer;
-    outline: none;
-    text-decoration: none;
-
-    >span { display: none; }
-}
-
-@mixin clearfix() {
-    &:after {
-        content: " ";
-        display: table;
-        clear: both;
-    }
-}
-
 html {
     font-family: arial;
     font-size: 14px;
@@ -34,9 +17,11 @@ header {
     }
 
     >a {
+        @include sprite();
+
         height: 71px;
         width: 334px;
-        background: url(../img/logo.png) no-repeat 0 0;
+        background-position: -536px 0;
     }
 
     >nav {
@@ -86,7 +71,10 @@ header {
                     text-decoration: none;
 
                     >span { visibility: visible; }
-                    >strong { color: #520000; }
+                    >strong {
+                        color: #520000;
+                        text-shadow: 0 0 1px #000;
+                    }
                 }
 
                 &:active {
