@@ -5,3 +5,5 @@ dist/css
 dist/img/*
 
 dist/img/logo.png
+
+dist/content/wp-config.php
