@@ -4,9 +4,9 @@ define(['backbone', 'controllers/home', 'controllers/secondary', 'controllers/ca
 
     var AppRouter = Backbone.Router.extend({
         initialize: function() {
-            this.route(/^.*$/, 'showHome');
+            this.route(/^.*$/, 'showSecondary');
             this.route(/^news|events|media|artists$/, 'showCategory');
-            this.route(/^about$/, 'showSecondary');
+            this.route(/^(\/)?$/, 'showHome');
         },
 
         showCategory: function() {

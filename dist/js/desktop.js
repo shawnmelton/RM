@@ -415,16 +415,84 @@ define('views/secondary',['jquery', 'backbone', 'templates/jst'], function($, Ba
 
         render: function() {
             this.$el.html(JST['src/js/templates/secondary.html']({}));
+        },
+
+        setBackgroundImage: function(url) {
+            console.log(url);
+            document.getElementById('secondary-top').style.backgroundImage = 'url('+ url +')';
         }
     });
 
     return new SecondaryView();
 });
-define('controllers/secondary',['views/secondary'], function(SecondaryView) {
+define('tools/urlTranslator',[], function() {
+    /**
+     * UrlTranslator class will help modify urls passed between Wordpress and 
+     * this site.  Wordpress urls will come in the format of http://domain.com/content/...
+     * We will need to convert them to http://domain.com/... for use in the site.
+     */
+    var UrlTranslator = function() {};
+    UrlTranslator.prototype = {
+        domain: null,
+
+        /**
+         * Detemine the domain of the current site.
+         */
+        determineDomain: function() {
+            return 'http://'+ location.hostname;
+        },
+
+        /**
+         * Translate a url that was provided from Wordpress.
+         */
+        fromWP: function(url) {
+            return url.replace('/content', '');
+        },
+
+        /**
+         * Get the site domain.
+         */
+        getDomain: function() {
+            if(this.domain === null) {
+                this.domain = this.determineDomain();
+            }
+
+            return this.domain;
+        },
+
+        /**
+         * Translate a site url to a url that Wordpress will recognize.
+         */
+        toWP: function(url) {
+            return url.replace(this.getDomain(), this.getDomain() +'/content');
+        }
+    };
+
+    return new UrlTranslator();
+});
+define('controllers/secondary',['jquery', 'views/secondary', 'tools/urlTranslator'], function($, SecondaryView, UrlTranslator) {
     var SecondaryController = function() {};
     SecondaryController.prototype = {
+        addBanner: function(attachments) {
+            if(attachments.length > 0 && 'images' in attachments[0] && typeof attachments[0].images === 'object') {
+                SecondaryView.setBackgroundImage(attachments[0].images.full.url);
+            }
+        },
+
+        addContent: function() {
+            var _this = this;
+            $.getJSON(UrlTranslator.toWP(location.href), {
+                json: 1
+            }, function(r) {
+                if(typeof r === 'object' && 'status' in r && r.status === 'ok' && 'posts' in r && r.posts.length > 0) {
+                    _this.addBanner(r.posts[0].attachments);
+                }
+            });
+        },
+
         start: function() {
             SecondaryView.render();
+            this.addContent();
         }
     };
 
@@ -984,9 +1052,9 @@ define('router',['backbone', 'controllers/home', 'controllers/secondary', 'contr
 
     var AppRouter = Backbone.Router.extend({
         initialize: function() {
-            this.route(/^.*$/, 'showHome');
+            this.route(/^.*$/, 'showSecondary');
             this.route(/^news|events|media|artists$/, 'showCategory');
-            this.route(/^about$/, 'showSecondary');
+            this.route(/^(\/)?$/, 'showHome');
         },
 
         showCategory: function() {
