@@ -7,3 +7,4 @@ dist/img/*
 dist/img/logo.png
 
 dist/content/wp-config.php
+dist/content/wp-content/uploads

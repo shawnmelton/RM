@@ -1,0 +1,24 @@
+#category-top {
+    @include clearfix();
+
+    height: 72px;
+    padding-top: 96px;
+    color: #fff;
+    background: #000 url(../img/bg.jpg) no-repeat top right;
+
+    >a {
+        @include categoryHeading();
+
+        position: relative;
+        cursor: default;
+        float: left;
+    }
+}
+
+#category-body {
+    padding: 4px 0;
+}
+
+.articles {
+    @include threeColumnArticles();
+}

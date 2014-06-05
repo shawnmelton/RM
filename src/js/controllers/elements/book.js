@@ -24,6 +24,10 @@ define(['views/elements/book', 'tools/styleLoader'], function(BookViewEl, StyleL
 
         onFormSubmission: function(data) {
             console.log(data);
+
+            // Send data.  On callback close.
+            BookViewEl.hide();
+            BookViewEl.clearComments();
         },
 
         show: function() {

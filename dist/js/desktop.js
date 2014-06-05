@@ -201,7 +201,19 @@ this["JST"]["src/js/templates/book.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div id="book-bg"></div>\n<section id="book-content">\n    <p><a id="book-close"><span>Close</span></a></p>\n    <div id="book-left">\n        <h2>Book Now</h2>\n        <p>In at augue a lectus pellentesque mattis a sit amet diam. Cras dapibus leo porta, eleifend justo ac, auctor nulla. Maecenas quis velit lobortis, consequat massa ac, suscipit urna</p>\n    </div>\n    <form id="book-form" method="post" action="" name="book-form">\n        <fieldset>\n            <input type="text" name="firstName" placeholder="First Name">\n            <input type="text" name="lastName" placeholder="Last Name">\n        </fieldset>\n        <fieldset>\n            <input type="email" name="email" placeholder="Email Address">\n            <input type="phone" name="phone" placeholder="Phone Number">\n        </fieldset>\n        <fieldset>\n            <textarea name="comments" placeholder="Comments"></textarea>\n        </fieldset>\n        <p><a>Submit</a></p>\n    </form>\n</section>';
+__p += '<div id="book-bg"></div>\n<section id="book-content">\n    <p><a id="book-close"><span>Close</span></a></p>\n    <div id="book-left">\n        <h2>Book Now</h2>\n        <p>In at augue a lectus pellentesque mattis a sit amet diam. Cras dapibus leo porta, eleifend justo ac, auctor nulla. Maecenas quis velit lobortis, consequat massa ac, suscipit urna</p>\n    </div>\n    <form id="book-form" method="post" action="" name="book-form">\n        <fieldset>\n            <input type="text" id="first-name" name="firstName" placeholder="First Name">\n            <input type="text" id="last-name" name="lastName" placeholder="Last Name">\n        </fieldset>\n        <fieldset>\n            <input type="email" id="email" name="email" placeholder="Email Address">\n            <input type="phone" id="phone" name="phone" placeholder="Phone Number">\n        </fieldset>\n        <fieldset>\n            <textarea id="comments" name="comments" placeholder="Comments"></textarea>\n        </fieldset>\n        <p><a>Submit</a></p>\n    </form>\n</section>';
+
+}
+return __p
+};
+
+this["JST"]["src/js/templates/category.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div id="category-top">\n    <a>\n        <span></span>\n        <strong>' +
+((__t = ( heading )) == null ? '' : __t) +
+'</strong>\n    </a>\n</div>\n<div id="category-body">\n    <div class="articles">\n        <article>\n            <img src="/img/tile-example.jpg" alt="article title">\n            <h3>TITLE</h3>\n            <p>\n                Author | Date<br>\n                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &nbsp;<a href="">Read More ...</a>\n            </p>\n        </article>\n        <article>\n            <img src="/img/tile-example.jpg" alt="article title">\n            <h3>TITLE</h3>\n            <p>\n                Author | Date<br>\n                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &nbsp;<a href="">Read More ...</a>\n            </p>\n        </article>\n        <article>\n            <img src="/img/tile-example.jpg" alt="article title">\n            <h3>TITLE</h3>\n            <p>\n                Author | Date<br>\n                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &nbsp;<a href="">Read More ...</a>\n            </p>\n        </article>\n    </div>\n    <div class="articles">\n        <article>\n            <img src="/img/tile-example.jpg" alt="article title">\n            <h3>TITLE</h3>\n            <p>\n                Author | Date<br>\n                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &nbsp;<a href="">Read More ...</a>\n            </p>\n        </article>\n        <article>\n            <img src="/img/tile-example.jpg" alt="article title">\n            <h3>TITLE</h3>\n            <p>\n                Author | Date<br>\n                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &nbsp;<a href="">Read More ...</a>\n            </p>\n        </article>\n        <article>\n            <img src="/img/tile-example.jpg" alt="article title">\n            <h3>TITLE</h3>\n            <p>\n                Author | Date<br>\n                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &nbsp;<a href="">Read More ...</a>\n            </p>\n        </article>\n    </div>\n    <div class="articles">\n        <article>\n            <img src="/img/tile-example.jpg" alt="article title">\n            <h3>TITLE</h3>\n            <p>\n                Author | Date<br>\n                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &nbsp;<a href="">Read More ...</a>\n            </p>\n        </article>\n        <article>\n            <img src="/img/tile-example.jpg" alt="article title">\n            <h3>TITLE</h3>\n            <p>\n                Author | Date<br>\n                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &nbsp;<a href="">Read More ...</a>\n            </p>\n        </article>\n        <article>\n            <img src="/img/tile-example.jpg" alt="article title">\n            <h3>TITLE</h3>\n            <p>\n                Author | Date<br>\n                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &nbsp;<a href="">Read More ...</a>\n            </p>\n        </article>\n    </div>\n    <div class="articles">\n        <article>\n            <img src="/img/tile-example.jpg" alt="article title">\n            <h3>TITLE</h3>\n            <p>\n                Author | Date<br>\n                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &nbsp;<a href="">Read More ...</a>\n            </p>\n        </article>\n        <article>\n            <img src="/img/tile-example.jpg" alt="article title">\n            <h3>TITLE</h3>\n            <p>\n                Author | Date<br>\n                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &nbsp;<a href="">Read More ...</a>\n            </p>\n        </article>\n        <article>\n            <img src="/img/tile-example.jpg" alt="article title">\n            <h3>TITLE</h3>\n            <p>\n                Author | Date<br>\n                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &nbsp;<a href="">Read More ...</a>\n            </p>\n        </article>\n    </div>\n</div>\n';
 
 }
 return __p
@@ -212,6 +224,16 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '<div id="above-the-fold">\n    <section id="spotlight">\n        <div></div>\n        <h1><span>Experience Renaissance Movement Music</span></h1>\n        <p id="calls-to-action">\n            <a id="home-events">\n                <span></span>\n                <strong>Upcoming Events</strong>\n            </a>\n            <a id="home-book">\n                <span></span>\n                <strong>Book Now</strong>\n            </a>\n        </p>\n        <a id="home-play"></a>\n        <p id="open-rmtv"><a>Open <span>RMTV</span></a></p>\n    </section>\n    <a id="home-news">\n        <span></span>\n        <strong>News</strong>\n    </a>\n</div>\n<div id="below-the-fold">\n    <section id="news-teaser">\n        <div class="tiled-group">\n            <article>\n                <img src="/img/tile-example.jpg" alt="article title">\n                <h3>TITLE</h3>\n                <p>\n                    Author | Date<br>\n                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &nbsp;<a href="">Read More ...</a>\n                </p>\n            </article>\n            <article>\n                <img src="/img/tile-example.jpg" alt="article title">\n                <h3>TITLE</h3>\n                <p>\n                    Author | Date<br>\n                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &nbsp;<a href="">Read More ...</a>\n                </p>\n            </article>\n            <article>\n                <img src="/img/tile-example.jpg" alt="article title">\n                <h3>TITLE</h3>\n                <p>\n                    Author | Date<br>\n                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &nbsp;<a href="">Read More ...</a>\n                </p>\n            </article>\n        </div>\n    </section>\n</div>';
+
+}
+return __p
+};
+
+this["JST"]["src/js/templates/secondary.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<article id="slash-secondary">\n    <div id="secondary-top">\n        \n    </div>\n</article>';
 
 }
 return __p
@@ -233,7 +255,7 @@ define('views/home',['jquery', 'backbone', 'templates/jst'], function($, Backbon
         },
 
         render: function() {
-            this.$el.append(JST['src/js/templates/home.html']({}));
+            this.$el.html(JST['src/js/templates/home.html']({}));
         },
 
         setBookCallback: function(_cb) {
@@ -255,6 +277,10 @@ define('views/elements/book',['jquery', 'backbone', 'templates/jst'], function($
             'click #book-close': 'onCloseClick',
             'click #book-form > p > a': 'onFormSubmission',
             'submit #book-form': 'onFormSubmission'
+        },
+
+        clearComments: function() {
+            document.getElementById('comments').value = '';
         },
 
         hide: function() {
@@ -352,6 +378,10 @@ define('controllers/elements/book',['views/elements/book', 'tools/styleLoader'],
 
         onFormSubmission: function(data) {
             console.log(data);
+
+            // Send data.  On callback close.
+            BookViewEl.hide();
+            BookViewEl.clearComments();
         },
 
         show: function() {
@@ -370,17 +400,59 @@ define('controllers/home',['views/home', 'controllers/elements/book'], function(
             });
         },
 
-        display: function() {
+        start: function() {
             HomeView.render();
             this.addBookCallback();
-        },
-
-        start: function() {
-            this.display();
         }
     };
 
     return new HomeController();
+});
+define('views/secondary',['jquery', 'backbone', 'templates/jst'], function($, Backbone, tmplts) {
+    var SecondaryView = Backbone.View.extend({
+        el: '#content',
+        events: {},
+
+        render: function() {
+            this.$el.html(JST['src/js/templates/secondary.html']({}));
+        }
+    });
+
+    return new SecondaryView();
+});
+define('controllers/secondary',['views/secondary'], function(SecondaryView) {
+    var SecondaryController = function() {};
+    SecondaryController.prototype = {
+        start: function() {
+            SecondaryView.render();
+        }
+    };
+
+    return new SecondaryController();
+});
+define('views/category',['jquery', 'backbone', 'templates/jst'], function($, Backbone, tmplts) {
+    var CategoryView = Backbone.View.extend({
+        el: '#content',
+        events: {},
+
+        render: function(token) {
+            this.$el.html(JST['src/js/templates/category.html']({
+                heading: token.toUpperCase()
+            }));
+        }
+    });
+
+    return new CategoryView();
+});
+define('controllers/category',['views/category'], function(CategoryView) {
+    var CategoryController = function() {};
+    CategoryController.prototype = {
+        start: function(token) {
+            CategoryView.render(token);
+        }
+    };
+
+    return new CategoryController();
 });
 /*
     json2.js
@@ -873,16 +945,60 @@ if (typeof JSON !== 'object') {
 }());
 define("libs/json2", function(){});
 
-define('router',['backbone', 'controllers/home', 'libs/json2'],
-    function(Backbone, HomeController, jsn2) {
+define('views/elements/mainMenu',['jquery', 'backbone', 'controllers/elements/book'],
+    function($, Backbone, BookController) {
+    var MainMenuViewEl = Backbone.View.extend({
+        started: false,
+
+        start: function() {
+            if(this.started) {
+                return;
+            }
+
+            this.started = true;
+            $('header > nav > a').click(function(e) {
+                e.preventDefault();
+
+                if($(this).attr('id') === 'book') {
+                    BookController.display();
+                    return;
+                }
+
+                if(!!(window.history && window.history.pushState)) {
+                    appRouter.navigate($(this).attr('href'), {
+                        trigger: true,
+                        replace: true
+                    });
+                } else {
+                    location.href = url;
+                }
+            });
+        }
+    });
+
+    return new MainMenuViewEl();
+});
+define('router',['backbone', 'controllers/home', 'controllers/secondary', 'controllers/category', 'libs/json2', 
+    'views/elements/mainMenu'],
+    function(Backbone, HomeController, SecondaryController, CategoryController, jsn2, MainMenu) {
 
     var AppRouter = Backbone.Router.extend({
         initialize: function() {
             this.route(/^.*$/, 'showHome');
+            this.route(/^news|events|media|artists$/, 'showCategory');
+            this.route(/^about$/, 'showSecondary');
+        },
+
+        showCategory: function() {
+            CategoryController.start(document.location.pathname.replace('/', ''));
         },
 
         showHome: function() {
             HomeController.start();
+        },
+
+        showSecondary: function() {
+            SecondaryController.start();
         }
     });
     
@@ -897,6 +1013,8 @@ define('router',['backbone', 'controllers/home', 'libs/json2'],
             pushState: usePushState,
             hashChange: usePushState
         });
+
+        MainMenu.start();
     };
     
     return {

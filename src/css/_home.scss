@@ -125,85 +125,21 @@
     }
 
     a#home-news {
-        @include link();
+        @include categoryHeading();
 
         position: absolute;
         bottom: 15px;
         left: 0;
-        height: 60px;
-        line-height: 60px;
-        border-top-right-radius: 30px;
-        border-bottom-right-radius: 30px;
-        padding-left: 38px;
-        padding-right: 56px;
-        background: url(../img/heading-arrow-down.png) no-repeat 95% 50%;
-
-        >span {
-            position: absolute;
-            display: block;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: #000;
-            opacity: 0.4;
-            border-top-right-radius: 30px;
-            border-bottom-right-radius: 30px;
-        }
-
-        >strong {
-            position: relative;
-            font-size: 250%;
-            text-transform: uppercase;
-            font-weight: normal;
-        }
-    }
+}
 
 #below-the-fold {
+    background: #eeeece;
+
     >section {
         margin: 4px 0;
     }
 
     .tiled-group {
-        @include clearfix();
-
-        >article {
-            position: relative;
-            float: left;
-            width: 33.333%;
-            padding-left: 4px;
-            box-sizing: border-box;
-
-            &:first-child {
-                padding-left: 0;
-            }
-
-            >img {
-                display: block;
-                width: 100%;
-                max-height: 282px;
-            }
-
-            >h3 {
-                position: absolute;
-                left: 15px;
-                top: 235px;
-                color: #fff;
-                font-size: 200%;
-                font-weight: normal;
-            }
-
-            >p {
-                color: #8f8e8e;
-                line-height: 20px;
-                padding: 12px;
-
-                >a {
-                    color: #de0000;
-
-                    &:hover { text-decoration: underline; }
-                }
-            }
-        }
+        @include threeColumnArticles();
     }
 }

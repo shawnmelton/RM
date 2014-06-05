@@ -13,7 +13,7 @@ define(['jquery', 'backbone', 'templates/jst'], function($, Backbone, tmplts) {
         },
 
         render: function() {
-            this.$el.append(JST['src/js/templates/home.html']({}));
+            this.$el.html(JST['src/js/templates/home.html']({}));
         },
 
         setBookCallback: function(_cb) {

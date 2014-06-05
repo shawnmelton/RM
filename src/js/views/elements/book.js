@@ -12,6 +12,10 @@ define(['jquery', 'backbone', 'templates/jst'], function($, Backbone, tmplts) {
             'submit #book-form': 'onFormSubmission'
         },
 
+        clearComments: function() {
+            document.getElementById('comments').value = '';
+        },
+
         hide: function() {
             var _bgEl = this.bgEl;
             $(this.contentEl).fadeOut(1000, function() {

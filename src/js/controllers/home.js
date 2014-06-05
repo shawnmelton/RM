@@ -7,13 +7,9 @@ define(['views/home', 'controllers/elements/book'], function(HomeView, BookContr
             });
         },
 
-        display: function() {
+        start: function() {
             HomeView.render();
             this.addBookCallback();
-        },
-
-        start: function() {
-            this.display();
         }
     };
 
