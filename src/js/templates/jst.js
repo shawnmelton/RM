@@ -36,7 +36,7 @@ this["JST"]["src/js/templates/secondary.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<article id="slash-secondary">\n    <div id="secondary-top">\n        \n    </div>\n</article>';
+__p += '<article id="slash-secondary">\n    <div id="secondary-top">\n        <h1></h1>\n        <h2></h2>\n    </div>\n    <div id="secondary-content"></div>\n</article>';
 
 }
 return __p

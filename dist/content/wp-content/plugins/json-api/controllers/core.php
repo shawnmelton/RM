@@ -150,6 +150,7 @@ class JSON_API_Core_Controller {
   
   public function get_category_posts() {
     global $json_api;
+
     $category = $json_api->introspector->get_current_category();
     if (!$category) {
       $json_api->error("Not found.");

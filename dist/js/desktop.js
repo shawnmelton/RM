@@ -233,7 +233,7 @@ this["JST"]["src/js/templates/secondary.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<article id="slash-secondary">\n    <div id="secondary-top">\n        \n    </div>\n</article>';
+__p += '<article id="slash-secondary">\n    <div id="secondary-top">\n        <h1></h1>\n        <h2></h2>\n    </div>\n    <div id="secondary-content"></div>\n</article>';
 
 }
 return __p
@@ -418,8 +418,23 @@ define('views/secondary',['jquery', 'backbone', 'templates/jst'], function($, Ba
         },
 
         setBackgroundImage: function(url) {
-            console.log(url);
             document.getElementById('secondary-top').style.backgroundImage = 'url('+ url +')';
+        },
+
+        setContent: function(str) {
+            document.getElementById('secondary-content').innerHTML = str;
+        },
+
+        setHeading: function(str) {
+            if(typeof str === 'string' && str.length > 0) {
+                document.getElementsByTagName('h1')[0].innerHTML = str;
+            }
+        },
+
+        setSubHeading: function(str) {
+            if(typeof str === 'string' && str.length > 0) {
+                document.getElementsByTagName('h2')[0].innerHTML = str;
+            }
         }
     });
 
@@ -479,20 +494,40 @@ define('controllers/secondary',['jquery', 'views/secondary', 'tools/urlTranslato
             }
         },
 
-        addContent: function() {
+        addContent: function(content) {
+            SecondaryView.setContent(content);
+        },
+
+        addHeading: function(heading, subHeading) {
+            SecondaryView.setHeading(heading);
+            SecondaryView.setSubHeading(subHeading);
+        },
+
+        setPage: function() {
             var _this = this;
             $.getJSON(UrlTranslator.toWP(location.href), {
-                json: 1
+                json: 1,
+                date_format: 'm.d.Y'
             }, function(r) {
                 if(typeof r === 'object' && 'status' in r && r.status === 'ok' && 'posts' in r && r.posts.length > 0) {
                     _this.addBanner(r.posts[0].attachments);
+                    _this.addContent(r.posts[0].content);
+
+                    // We have to build the subheading.
+                    var subHeading = r.posts[0].author.name +' &nbsp;|&nbsp; '+ r.posts[0].modified;
+
+                    /*if(r.posts.categories.length > 0) {
+                        subHeading += ' | TODO';
+                    }*/
+
+                    _this.addHeading(r.posts[0].title, subHeading);
                 }
             });
         },
 
         start: function() {
             SecondaryView.render();
-            this.addContent();
+            this.setPage();
         }
     };
 
@@ -512,11 +547,25 @@ define('views/category',['jquery', 'backbone', 'templates/jst'], function($, Bac
 
     return new CategoryView();
 });
-define('controllers/category',['views/category'], function(CategoryView) {
+define('controllers/category',['jquery', 'views/category', 'tools/urlTranslator'], function($, CategoryView, UrlTranslator) {
     var CategoryController = function() {};
     CategoryController.prototype = {
+        setPage: function(token) {
+            var _this = this;
+            $.getJSON(UrlTranslator.toWP(location.href), {
+                json: 'get_category_posts',
+                date_format: 'm.d.Y',
+                slug: token
+            }, function(r) {
+                if(typeof r === 'object' && 'status' in r && r.status === 'ok' && 'posts' in r && r.posts.length > 0) {
+                    
+                }
+            });
+        },
+
         start: function(token) {
             CategoryView.render(token);
+            this.setPage(token);
         }
     };
 

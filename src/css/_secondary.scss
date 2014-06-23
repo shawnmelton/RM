@@ -1,7 +1,36 @@
 #secondary-top {
+    position: relative;
     height: 558px;
     color: #fff;
     background-color: #000;
     background-repeat: no-repeat;
     background-position: 0 0;
+
+    >h1, >h2 {
+        position: absolute;
+        left: 35px;
+        margin: 0;
+        color: #fff;
+        font-weight: 100;
+        text-shadow: 0 0 10px #000;
+    }
+
+    >h1 {
+        font-size: 342%;
+        bottom: 58px;
+    }
+
+    >h2 {
+        font-size: 100%;
+        line-height: 25px;
+        height: 25px;
+        bottom: 33px;
+    }
+}
+
+#secondary-content {
+    padding: 100px 25px 50px;
+    font-size: 171%;
+    line-height: 36px;
+    color: #8f8f8e;
 }
