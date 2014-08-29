@@ -28,7 +28,7 @@ define(['jquery', 'backbone', 'templates/jst'], function($, Backbone, tmplts) {
         },
 
         onFormSubmission: function() {
-            if(this.submitCallback !== null && this.validate()) {
+            if(this.submitCallback !== null) {
                 this.submitCallback($('#book-form').serialize());
             }
         },

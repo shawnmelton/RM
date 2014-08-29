@@ -1,9 +1,11 @@
-define(['jquery', 'backbone', 'templates/jst'], function($, Backbone, tmplts) {
+define(['jquery', 'backbone', 'templates/jst', 'tools/videoLoader'], function($, Backbone, tmplts, VideoLoader) {
     var HomeView = Backbone.View.extend({
         el: '#content',
         bookCallback: false,
         events: {
-            'click #home-book': 'onBookClick'
+            'click #home-book': 'onBookClick',
+            'click #home-play': 'onVideoClick',
+            'click #open-rmtv': 'onVideoClick'
         },
 
         onBookClick: function() {
@@ -12,12 +14,30 @@ define(['jquery', 'backbone', 'templates/jst'], function($, Backbone, tmplts) {
             }
         },
 
+        onVideoClick: function() {
+            VideoLoader.showYouTube('-abF0hrHlSg');
+        },
+
         render: function() {
             this.$el.html(JST['src/js/templates/home.html']({}));
         },
 
         setBookCallback: function(_cb) {
             this.bookCallback = _cb;
+        },
+
+        showCategory: function(token, articles) {
+            var categoryEl = null;
+
+            switch(token) {
+                case 'news': categoryEl = document.getElementById('news-teaser'); break;
+            }
+
+            if(categoryEl !== null) {
+                categoryEl.innerHTML = JST['src/js/templates/elements/articleTeasers.html']({
+                    articles: articles
+                });
+            }
         }
     });
 

@@ -5,7 +5,7 @@ module.exports = (function(grunt) {
         jst: {
             compile: {
                 files: {
-                    'src/js/templates/jst.js': 'src/js/templates/*.html'
+                    'src/js/templates/jst.js': ['src/js/templates/*.html', 'src/js/templates/**/*.html']
                 }
             }
         },

@@ -1,4 +1,4 @@
-define(['views/elements/book', 'tools/styleLoader'], function(BookViewEl, StyleLoader) {
+define(['jquery', 'views/elements/book', 'tools/styleLoader'], function($, BookViewEl, StyleLoader) {
     var BookController = function() {};
     BookController.prototype = {
         displayed: false,
@@ -23,11 +23,17 @@ define(['views/elements/book', 'tools/styleLoader'], function(BookViewEl, StyleL
         },
 
         onFormSubmission: function(data) {
-            console.log(data);
-
-            // Send data.  On callback close.
-            BookViewEl.hide();
-            BookViewEl.clearComments();
+            $.post('/book.php', data, function(r) {
+                var response = $.parseJSON(r);
+                if(typeof response === 'object' && 'status' in response) {
+                    if(response.status === 'ok') {
+                        BookViewEl.hide();
+                        BookViewEl.clearComments();
+                    } else {
+                        // Error !
+                    }
+                }
+            });
         },
 
         show: function() {

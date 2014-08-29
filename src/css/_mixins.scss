@@ -63,6 +63,8 @@
         width: 33.333%;
         padding-left: 4px;
         box-sizing: border-box;
+        background: #fff;
+        cursor: pointer;
 
         &:first-child {
             padding-left: 0;
@@ -80,7 +82,7 @@
             top: 235px;
             color: #fff;
             font-size: 200%;
-            font-weight: normal;
+            font-weight: 100;
         }
 
         >p {

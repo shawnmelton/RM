@@ -1,6 +1,6 @@
-define(['backbone', 'controllers/home', 'controllers/secondary', 'controllers/category', 'libs/json2', 
-    'views/elements/mainMenu'],
-    function(Backbone, HomeController, SecondaryController, CategoryController, jsn2, MainMenu) {
+define(['backbone', 'jquery', 'controllers/home', 'controllers/secondary', 'controllers/category', 'libs/json2',
+    'controllers/elements/book'],
+    function(Backbone, $, HomeController, SecondaryController, CategoryController, jsn2, BookController) {
 
     var AppRouter = Backbone.Router.extend({
         initialize: function() {
@@ -27,15 +27,21 @@ define(['backbone', 'controllers/home', 'controllers/secondary', 'controllers/ca
      * push state if the browser supports it.
      */
     var initialize = function(){
-        window.appRouter = new AppRouter();
-        var usePushState = !!(window.history && window.history.pushState);
-        Backbone.history.start({
-            pushState: usePushState,
-            hashChange: usePushState
-        });
+            window.appRouter = new AppRouter();
+            var usePushState = !!(window.history && window.history.pushState);
+            Backbone.history.start({
+                pushState: usePushState,
+                hashChange: usePushState
+            });
 
-        MainMenu.start();
-    };
+            setBookClickHandler();  
+        },
+
+        setBookClickHandler = function() {
+            $('#book').click(function() {
+                BookController.display();
+            });
+        };
     
     return {
         initialize: initialize

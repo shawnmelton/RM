@@ -1,4 +1,5 @@
 #above-the-fold {
+    position: relative;
     color: #fff;
     background: #000 url(../img/bg.jpg) no-repeat top right;
     height: 768px;
@@ -133,13 +134,10 @@
 }
 
 #below-the-fold {
-    background: #eeeece;
+    background: #fff;
+    padding-bottom: 150px;
 
     >section {
         margin: 4px 0;
-    }
-
-    .tiled-group {
-        @include threeColumnArticles();
     }
 }

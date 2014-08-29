@@ -1,9 +1,15 @@
 RewriteEngine on
 RewriteBase /
 
+RewriteCond %{REQUEST_URI}  !(content) [NC]
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteRule . index.html [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . content/index.php [L]
+
 
 # Adding default character set.
 <FilesMatch "\.(html|css|js)$">

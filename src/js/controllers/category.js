@@ -3,13 +3,17 @@ define(['jquery', 'views/category', 'tools/urlTranslator'], function($, Category
     CategoryController.prototype = {
         setPage: function(token) {
             var _this = this;
-            $.getJSON(UrlTranslator.toWP(location.href), {
+            $.getJSON('/content/', {
                 json: 'get_category_posts',
                 date_format: 'm.d.Y',
                 slug: token
             }, function(r) {
-                if(typeof r === 'object' && 'status' in r && r.status === 'ok' && 'posts' in r && r.posts.length > 0) {
-                    
+                if(typeof r === 'object' && 'status' in r && r.status === 'ok' && 'posts' in r) {
+                    if(r.posts.length > 0) {
+                        CategoryView.showTeasers(r.posts);
+                    } else {
+                        CategoryView.showNoResults();
+                    }
                 }
             });
         },

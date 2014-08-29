@@ -3,7 +3,9 @@ define(['jquery', 'views/secondary', 'tools/urlTranslator'], function($, Seconda
     SecondaryController.prototype = {
         addBanner: function(attachments) {
             if(attachments.length > 0 && 'images' in attachments[0] && typeof attachments[0].images === 'object') {
-                SecondaryView.setBackgroundImage(attachments[0].images.full.url);
+                if(parseInt(attachments[0].images.full.url.width) > 1000) {
+                    SecondaryView.setBackgroundImage(attachments[0].images.full.url);
+                }
             }
         },
 
@@ -22,18 +24,12 @@ define(['jquery', 'views/secondary', 'tools/urlTranslator'], function($, Seconda
                 json: 1,
                 date_format: 'm.d.Y'
             }, function(r) {
-                if(typeof r === 'object' && 'status' in r && r.status === 'ok' && 'posts' in r && r.posts.length > 0) {
-                    _this.addBanner(r.posts[0].attachments);
-                    _this.addContent(r.posts[0].content);
+                if(typeof r === 'object' && 'status' in r && r.status === 'ok' && 'post' in r) {
+                    _this.addBanner(r.post.attachments);
+                    _this.addContent(r.post.content);
 
                     // We have to build the subheading.
-                    var subHeading = r.posts[0].author.name +' &nbsp;|&nbsp; '+ r.posts[0].modified;
-
-                    /*if(r.posts.categories.length > 0) {
-                        subHeading += ' | TODO';
-                    }*/
-
-                    _this.addHeading(r.posts[0].title, subHeading);
+                    _this.addHeading(r.post.title, r.post.author.name +' &nbsp;|&nbsp; '+ r.post.modified);
                 }
             });
         },

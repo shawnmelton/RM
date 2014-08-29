@@ -1,0 +1,15 @@
+<div class="articles">
+<% _.each(articles, function(article, index) { %>
+    <% if(index !== 0 && (index + 1) % 3 === 1) { %>
+        </div><div class="articles">
+    <% } %>
+    <article data-url="<%= article.slug %>">
+        <img src="<%= article.thumbnail_images.thumbnail.url %>" alt="<%= article.title_plain %>">
+        <h3><%= article.title %></h3>
+        <p>
+            <%= article.author.name %> | <%= article.date %><br>
+            <%= String(article.excerpt).replace('<p>', '').replace('</p>', '').substring(0, 100) %> &nbsp;<a href="/<%= article.slug %>/">Read More ...</a>
+        </p>
+    </article>
+<% }); %>
+</div>

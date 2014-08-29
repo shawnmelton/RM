@@ -37,7 +37,14 @@ define([], function() {
          * Translate a site url to a url that Wordpress will recognize.
          */
         toWP: function(url) {
-            return url.replace(this.getDomain(), this.getDomain() +'/content');
+            var newUrl = url.replace(this.getDomain(), this.getDomain() +'/content');
+
+            // Prevent 302 redirect by adding trailing slash
+            if(!(/\/$/.test(newUrl))) {
+                newUrl += '/';
+            }
+
+            return newUrl;
         }
     };
 
