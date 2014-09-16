@@ -4,7 +4,7 @@
     color: #fff;
     background-color: #000;
     background-repeat: no-repeat;
-    background-position: 0 0;
+    background-position: center center;
 
     >h1, >h2 {
         position: absolute;
@@ -33,4 +33,11 @@
     font-size: 171%;
     line-height: 36px;
     color: #8f8f8e;
+
+    >p { margin: 15px 0; }
+    a { 
+        color: #de0000;
+
+        &:hover { text-decoration: underline; }
+    }
 }
