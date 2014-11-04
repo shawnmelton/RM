@@ -4,17 +4,31 @@
         <title>Renaissance Movement</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, user-scalable=no">
-        <link rel="stylesheet" type="text/css" href="/css/styles.css">
+        <style type="text/css">
+            body { background: #000; }
+            header a { color: #000; }
+        </style>
         <!--[if lt IE 9]><script src="/js/html5.js"></script><![endif]-->
         <script type="text/javascript">
-            var lazyLoad = function() {
-                var scriptTag = document.createElement('script'); 
-                scriptTag.src = '/js/desktop.js';
-                scriptTag.type = 'text/javascript';
-                scriptTag.async = true;
-                scriptTag.defer = true;
-                document.getElementsByTagName('head')[0].appendChild(scriptTag);
-            }
+            var getRandom = function() {
+                    return 3;
+                    //return Math.floor((Math.random() * 1000) + 1);
+                },
+
+                lazyLoad = function() {
+                    var linkTag = document.createElement('link');
+                    linkTag.rel = 'stylesheet';
+                    linkTag.type = 'text/css';
+                    linkTag.href = '/css/styles.css?r='+ getRandom();
+                    document.getElementsByTagName('head')[0].appendChild(linkTag);
+
+                    var scriptTag = document.createElement('script');
+                    scriptTag.src = '/js/desktop.js?r='+ getRandom();
+                    scriptTag.type = 'text/javascript';
+                    scriptTag.async = true;
+                    scriptTag.defer = true;
+                    document.getElementsByTagName('head')[0].appendChild(scriptTag);
+                };
         </script>
     </head>
     <body onload="lazyLoad();">
@@ -34,5 +48,6 @@
             </nav>
         </header>
         <div id="content"></div>
+        <a id="nav-btn"></a>
     </body>
 </html>

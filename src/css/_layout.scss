@@ -24,69 +24,11 @@ header {
         width: 334px;
         background-position: -536px 0;
     }
-
-    >nav {
-        @include clearfix();
-
-        position: absolute;
-        right: 20px;
-        top: 21px;
-
-        >a {
-            border: 3px solid transparent;
-            height: 36px;
-            line-height: 36px;
-            text-align: center;
-            padding: 0 10px;
-            float: left;
-            font-size: 120%;
-
-            &:hover {
-                text-decoration: underline;
-            }
-
-            &#book {
-                position: relative;
-                border-color: #fff;
-                padding: 0 22px;
-                margin-left: 10px;
-
-                >span {
-                    position: absolute;
-                    display: block;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: #fff;
-                    opacity: 0.4;
-                    visibility: hidden;
-                }
-
-                >strong {
-                    position: relative;
-                    font-weight: normal;
-                }
-
-                &:hover {
-                    text-decoration: none;
-
-                    >span { visibility: visible; }
-                    >strong {
-                        color: #520000;
-                        text-shadow: 0 0 1px #000;
-                    }
-                }
-
-                &:active {
-                    >span { opacity: 0.75; }
-                }
-            }
-        }
-    }
 }
 
 body {
+    background: #fff;
+
     h1 {
         >span { display: none; }
     }

@@ -98,4 +98,24 @@
             }
         }
     }
+
+    @media screen and (max-width: 900px) {
+        >article {
+            width: 50%;
+
+            >h3 {
+                font-size: 150%;
+            }
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        >article {
+            width: auto;
+
+            >h3 {
+                font-size: 120%;
+            }
+        }
+    }
 }
