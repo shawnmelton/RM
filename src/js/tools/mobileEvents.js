@@ -19,6 +19,10 @@ define([], function() {
                     _nav.className = 'show';
                 }
             });
+
+            $(document.getElementById('book')).click(function() {
+                _nav.className = '';
+            });
         }
     };
 

@@ -26,7 +26,7 @@ this["JST"]["src/js/templates/home.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div id="above-the-fold">\n    <section id="spotlight">\n        <div></div>\n        <h1><span>Experience Renaissance Movement Music</span></h1>\n        <p id="calls-to-action">\n            <a id="home-events" href="/events">\n                <span></span>\n                <strong>Upcoming Events</strong>\n            </a>\n            <a id="home-book">\n                <span></span>\n                <strong>Book Now</strong>\n            </a>\n        </p>\n        <a id="home-play"></a>\n        <p id="open-rmtv"><a>Open <span>RMTV</span></a></p>\n    </section>\n    <a id="home-news">\n        <span></span>\n        <strong>News</strong>\n    </a>\n</div>\n<div id="below-the-fold">\n    <section id="news-teaser"></section>\n</div>';
+__p += '<div id="above-the-fold">\n    <div></div>\n    <section id="spotlight">\n        <div></div>\n        <h1><span><i>Experience</i><br><strong>Renaissance<br>Movement Music</strong></span></h1>\n        <p id="calls-to-action">\n            <a id="home-events" href="/events">\n                <span></span>\n                <strong>Upcoming Events</strong>\n            </a>\n            <a id="home-book">\n                <span></span>\n                <strong>Book Now</strong>\n            </a>\n        </p>\n        <a id="home-play"></a>\n        <p id="open-rmtv"><a>Open <span>RMTV</span></a></p>\n    </section>\n    <a id="home-news">\n        <span></span>\n        <strong>News</strong>\n    </a>\n</div>\n<div id="below-the-fold">\n    <section id="news-teaser"></section>\n</div>';
 
 }
 return __p
@@ -55,11 +55,21 @@ __p += '\n        </div><div class="articles">\n    ';
  } ;
 __p += '\n    <article data-url="' +
 ((__t = ( article.slug )) == null ? '' : __t) +
-'">\n        <img src="' +
+'">\n        ';
+ if(typeof article.thumbnail_images === 'object' && 'medium' in article.thumbnail_images) { ;
+__p += '\n        <img src="' +
+((__t = ( article.thumbnail_images.medium.url )) == null ? '' : __t) +
+'" alt="' +
+((__t = ( article.title_plain )) == null ? '' : __t) +
+'">\n        ';
+ } else if(typeof article.thumbnail_images === 'object' && 'thumbnail' in article.thumbnail_images) { ;
+__p += '\n        <img src="' +
 ((__t = ( article.thumbnail_images.thumbnail.url )) == null ? '' : __t) +
 '" alt="' +
 ((__t = ( article.title_plain )) == null ? '' : __t) +
-'">\n        <h3>' +
+'">\n        ';
+ } ;
+__p += '\n        <h3>' +
 ((__t = ( article.title )) == null ? '' : __t) +
 '</h3>\n        <p>\n            ' +
 ((__t = ( article.author.name )) == null ? '' : __t) +

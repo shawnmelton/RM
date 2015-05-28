@@ -42,7 +42,7 @@ define(['jquery', 'backbone', 'templates/jst'], function($, Backbone, tmplts) {
 
         show: function() {
             this.bgEl.style.display = 'block';
-            $(this.contentEl).fadeIn(1000);
+            this.contentEl.style.display = 'block';
         },
 
         validate: function() {

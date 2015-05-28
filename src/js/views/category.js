@@ -12,6 +12,10 @@ define(['jquery', 'backbone', 'templates/jst'], function($, Backbone, tmplts) {
             }
         },
 
+        prependContent: function(content) {
+            $('#category-body').prepend(content);
+        },
+
         render: function(token) {
             this.$el.html(JST['src/js/templates/category.html']({
                 heading: token.toUpperCase()

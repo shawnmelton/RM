@@ -5,35 +5,6 @@
     height: 768px;
 }
     #spotlight {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 528px;
-        height: 528px;
-        margin-left: -264px;
-        margin-top: -264px;
-
-        >div {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 528px;
-            width: 528px;
-            background: #000;
-            opacity: 0.3;
-            border-radius: 264px;
-        }
-
-        >h1 {
-            @include sprite();
-
-            position: relative;
-            height: 224px;
-            width: 423px;
-            margin: 65px auto 35px;
-            background-position: -113px 0;
-        }
-
         >p#calls-to-action {
             @include clearfix();
 
@@ -96,7 +67,7 @@
             width: 79px;
             height: 79px;
             margin: 25px auto 10px;
-            background-position: -34px 0;
+            background-position: -35px 0;
 
             &:hover {
                 background-position: -34px -79px;
@@ -139,5 +110,40 @@
 
     >section {
         margin: 4px 0;
+    }
+}
+
+@media screen and (min-width: 601px) {
+    #above-the-fold > div { display: none; }
+
+    #spotlight {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 528px;
+        height: 528px;
+        margin-left: -264px;
+        margin-top: -264px;
+
+        >div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 528px;
+            width: 528px;
+            background: #000;
+            opacity: 0.3;
+            border-radius: 264px;
+        }
+
+        >h1 {
+            @include sprite();
+
+            position: relative;
+            height: 224px;
+            width: 423px;
+            margin: 65px auto 35px;
+            background-position: -113px 0;
+        }
     }
 }

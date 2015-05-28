@@ -15,6 +15,23 @@ define(['jquery', 'views/category', 'tools/urlTranslator'], function($, Category
                         CategoryView.showNoResults();
                     }
                 }
+
+                if(token === 'events') {
+                    _this.setStaticContent('/content/events');
+                } else if(token === 'artists') {
+                    _this.setStaticContent('/content/artists');
+                }
+            });
+        },
+
+        setStaticContent: function(url) {
+            $.getJSON(url, {
+                json: 1,
+                date_format: 'm.d.Y'
+            }, function(r) {
+                if(typeof r === 'object' && 'status' in r && r.status === 'ok' && 'post' in r) {
+                    CategoryView.prependContent(r.post.content);
+                }
             });
         },
 

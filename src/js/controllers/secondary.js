@@ -7,11 +7,17 @@ define(['jquery', 'views/secondary', 'tools/urlTranslator'], function($, Seconda
             if('full' in images && typeof images.full === 'object') {
                 if(parseInt(images.full.width) > minWidth) {
                     SecondaryView.setBackgroundImage(images.full.url);
+                } else {
+                    SecondaryView.setBackgroundImage('/img/default-heading-bg.png');
                 }
             } else if('twentyfourteen-full-width' in images && typeof images['twentyfourteen-full-width'] === 'object') {
                 if(parseInt(images['twentyfourteen-full-width'].width) > minWidth) {
                     SecondaryView.setBackgroundImage(images['twentyfourteen-full-width'].url);
+                } else {
+                    SecondaryView.setBackgroundImage('/img/default-heading-bg.png');
                 }
+            } else {
+                SecondaryView.setBackgroundImage('/img/default-heading-bg.png');
             }
         },
 

@@ -4,7 +4,11 @@
         </div><div class="articles">
     <% } %>
     <article data-url="<%= article.slug %>">
+        <% if(typeof article.thumbnail_images === 'object' && 'medium' in article.thumbnail_images) { %>
+        <img src="<%= article.thumbnail_images.medium.url %>" alt="<%= article.title_plain %>">
+        <% } else if(typeof article.thumbnail_images === 'object' && 'thumbnail' in article.thumbnail_images) { %>
         <img src="<%= article.thumbnail_images.thumbnail.url %>" alt="<%= article.title_plain %>">
+        <% } %>
         <h3><%= article.title %></h3>
         <p>
             <%= article.author.name %> | <%= article.date %><br>

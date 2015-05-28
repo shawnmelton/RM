@@ -15,7 +15,7 @@ define([], function() {
             var link  = document.createElement('link');
             link.rel  = 'stylesheet';
             link.type = 'text/css';
-            link.href = '/css/'+ file +'.css';
+            link.href = '/css/'+ file +'.css?r=4';
             document.getElementsByTagName('head')[0].appendChild(link);
 
             this.styles.push(file);
